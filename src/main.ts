@@ -13,6 +13,8 @@ const createWindow = () => {
     width: 800,
     height: 600,
     webPreferences: {
+      nodeIntegration: false,  
+      contextIsolation: true,       
       preload: path.join(__dirname, 'preload.js'),
     },
   });
@@ -39,6 +41,11 @@ app.on('ready', createWindow);
 // for applications and their menu bar to stay active until the user quits
 // explicitly with Cmd + Q.
 app.on('window-all-closed', () => {
+  if (process.env.NODE_ENV === 'development') {
+  require('electron-reload')(__dirname, {
+    electron: require(`${__dirname}/../node_modules/electron`),
+  });
+}
   if (process.platform !== 'darwin') {
     app.quit();
   }

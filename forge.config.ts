@@ -12,30 +12,12 @@ const config: ForgeConfig = {
     asar: true,
   },
   rebuildConfig: {},
-  makers: [
-    new MakerSquirrel({}),
-    new MakerZIP({}, ['darwin']),
-    new MakerRpm({}),
-    new MakerDeb({}),
-   {
-    name: '@electron-forge/maker-squirrel',
-    config: {
-      name: 'desktop_app',
-    },
-  },
-  {
-    name: '@electron-forge/maker-zip',
-    config: {},
-  },
-  {
-    name: '@electron-forge/maker-deb',
-    config: {},
-  },
-  {
-    name: '@electron-forge/maker-rpm',
-    config: {},
-  },
-  ],
+makers: [
+  new MakerSquirrel({ name: 'desktop_app' }),
+  new MakerZIP({}, ['darwin']),
+  new MakerDeb({}),
+  new MakerRpm({}),
+],
   publishers: [
         {
           name: '@electron-forge/publisher-github',
@@ -57,12 +39,12 @@ const config: ForgeConfig = {
         {
           // `entry` is just an alias for `build.lib.entry` in the corresponding file of `config`.
           entry: 'src/main.ts',
-          config: './vite.main.config.ts',
+          config: './vite.main.config.mts',
           target: 'main',
         },
         {
           entry: 'src/preload.ts',
-          config: './vite.preload.config.ts',
+          config: './vite.preload.config.mts',
           target: 'preload',
         },
       ],

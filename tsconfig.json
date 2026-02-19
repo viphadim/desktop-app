@@ -12,9 +12,14 @@
     "paths": {
       "@/*": ["./src/*"]
     },
+    
+    "moduleResolution": "bundler"  ,
     "jsx": "react-jsx",
     "outDir": "dist",
     "moduleResolution": "node",
     "resolveJsonModule": true
-  }
+  },
+  "include": [
+      "src/**/*"   
+    ],
 }
