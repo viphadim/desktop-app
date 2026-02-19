@@ -2,7 +2,7 @@
   "name": "desktop-app",
   "productName": "desktop-app",
   "version": "1.0.0",
-  "description": "My Electron application description",
+  "description": "My Electron application Tic Tac Toe game",
   "main": ".vite/build/main.js",
   "private": true,
   "scripts": {
